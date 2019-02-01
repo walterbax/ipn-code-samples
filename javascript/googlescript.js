@@ -1,14 +1,13 @@
 function doPost(e) {
   var isProduction = false;
   
-  var strSimulator  = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-  var strLive = "https://www.paypal.com/cgi-bin/webscr";
+  var strSimulator  = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
+  var strLive = "https://ipnpb.paypal.com/cgi-bin/webscr";
   var paypalURL = strSimulator;
   
   if (isProduction)  paypalURL = strLive;
   
   var payload = "cmd=_notify-validate&" + e.postData.contents;
-  payload = payload.replace("+", "%2B");
 
   var options =
     {
